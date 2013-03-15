@@ -1,0 +1,184 @@
+body{
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 16px;
+	color: #666;
+}
+
+/* Header Principal */
+header.main{
+	position: fixed;
+	background: #fff;
+	top: 0;
+	left: 0;
+	right: 0;
+	box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+	height: 128px;
+}
+
+header.main h1{
+	display: block;
+	position: absolute;
+	top: 13px;
+	left: 12%;
+	margin: 0;
+}
+
+header.main h1 a{
+	display: block;
+	width: 174px;
+	height: 101px;
+	background: url('/img/logo_vorwerk_thermomix.png') top center no-repeat;
+	text-indent: -999px;
+	overflow: hidden;
+}
+
+header.main .telefono{
+	position: absolute;
+	right: 12%;
+	top: 35px;
+}
+
+/* Seccion de contenido Principal */
+section.main {
+	padding-top: 128px;
+	width: 76%;
+	margin: 0 auto;
+	max-width: 1024px;
+}
+
+section.main:after{
+	content: '.';
+	height: 0;
+	visibility: hidden;
+	display: block;
+	clear: both;
+}
+
+/* Rows */
+
+.span6{
+	width: 50%;
+	float: left;
+}
+
+
+/* Textos */
+
+h1,h2,h3,h4,h5,h6{
+	color: #27B35B;
+	margin: .4em;
+}
+
+h2 .big{
+	font-size: 2em;
+}
+
+h2 .medium{
+	font-size: 1.5em;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.Three-Dee{
+	line-height: 1em;
+	letter-spacing: .15em;
+	color: #27b35b;
+	font-weight:bold;
+	font-size: 52px;
+	text-shadow:0px 0px 0 rgb(32,172,84),
+				1px 1px 0 rgb(26,166,78),
+				2px 2px 0 rgb(19,159,71),
+				3px 3px 0 rgb(13,153,65),
+				4px 4px 0 rgb(6,146,58), 
+				5px 5px 0 rgb(-1,139,51),
+				6px 6px 5px rgba(0,0,0,0.1),
+				6px 6px 1px rgba(0,0,0,0.5),
+				0px 0px 5px rgba(0,0,0,.2);
+}
+
+/* Lista Demostración */
+
+.lista-demostracion{
+	list-style: none;
+	text-align: center;
+	padding: 0;
+}
+
+/* Forma Cita */
+
+.forma-cita{
+}
+
+.forma-cita input[type='text'],
+.forma-cita input[type='email']{
+	height: 32px;
+}
+
+.forma-cita input[type='text'],
+.forma-cita input[type='email'],
+.forma-cita textarea
+{
+	width: 90%;
+	margin: .5em auto;
+	display: block;
+	border: solid 3px rgba(0,0,0,0.2);
+	resize: none;
+	font-size: 1.1em;
+	text-indent: .5em;
+	border-radius: .35em;
+}
+
+.forma-cita textarea{
+	padding: .5em 0;
+	height: 200px;
+}
+
+.forma-cita *[placeholder] {
+   color: #999 !important;
+}
+
+.forma-cita input[type='submit']{
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+	height: 40px;
+	border: none;
+	border-radius: .25em;
+	background: #27B35B;
+	color: #fff;
+	font-weight: bold;
+}
+
+.forma-cita input[type='submit']{
+	position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: #27B35B;
+    font-size: 1.2em;
+    display: block;
+    padding: 4px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px #0C973D;
+	text-align: center;
+	cursor: pointer;
+	-webkit-transition: all .01s ease;
+	-moz-transition: all .01s ease;
+	-ms-transition: all .01s ease;
+	-o-transition: all .01s ease;
+	transition: all .01s ease;
+}
+
+.forma-cita input[type='submit']:active {
+    -webkit-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px #0C973D;
+    position: relative;
+    top: 6px;
+}
