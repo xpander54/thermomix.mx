@@ -1,3 +1,10 @@
+<section class="video-container">
+    
+    <iframe id="ytplayer" type="text/html"
+    src="https://www.youtube.com/embed/fDmvMPieJ14?controls=0&modestbranding=1&rel=0&showinfo=0&color=white&theme=light"
+    frameborder="0" allowfullscreen>
+    </iframe>
+</section>
 <section class="container first">
 	<div class="span6">
 		<h2 class="text-center"><span class="medium">Agenda</span> una demostración <span class="big">GRATUITA</span></h2>
