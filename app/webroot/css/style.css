@@ -15,7 +15,11 @@ header.main{
 	right: 0;
 	box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 	height: 128px;
+<<<<<<< HEAD
 	z-index: 999;
+=======
+	z-index: 9999;
+>>>>>>> dd6a80e06b65fc33f2650a67adbcf9f52d4f70a5
 }
 
 header.main h1{
@@ -43,6 +47,10 @@ header.main .telefono{
 
 /* Seccion de contenido Principal */
 section.main {
+<<<<<<< HEAD
+=======
+	padding-top: 192px;
+>>>>>>> dd6a80e06b65fc33f2650a67adbcf9f52d4f70a5
 	width: 76%;
 	margin: 0 auto;
 	max-width: 1024px;

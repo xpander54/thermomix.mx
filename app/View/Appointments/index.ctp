@@ -1,8 +1,16 @@
 <section class="video-container">
+<<<<<<< HEAD
 	<iframe id="ytplayer" type="text/html"
 src="https://www.youtube.com/embed/fDmvMPieJ14?controls=0&modestbranding=1&rel=0&showinfo=0&color=white&theme=light"
 frameborder="0" allowfullscreen>
 	</iframe>
+=======
+    
+    <iframe id="ytplayer" type="text/html"
+    src="https://www.youtube.com/embed/fDmvMPieJ14?controls=0&modestbranding=1&rel=0&showinfo=0&color=white&theme=light"
+    frameborder="0" allowfullscreen>
+    </iframe>
+>>>>>>> dd6a80e06b65fc33f2650a67adbcf9f52d4f70a5
 </section>
 <section class="container first">
 	<div class="span6">
