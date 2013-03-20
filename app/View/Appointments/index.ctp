@@ -1,3 +1,9 @@
+<section class="video-container">
+	<iframe id="ytplayer" type="text/html"
+src="https://www.youtube.com/embed/fDmvMPieJ14?controls=0&modestbranding=1&rel=0&showinfo=0&color=white&theme=light"
+frameborder="0" allowfullscreen>
+	</iframe>
+</section>
 <section class="container first">
 	<div class="span6">
 		<h2 class="text-center"><span class="medium">Agenda</span> una demostración <span class="big">GRATUITA</span></h2>
@@ -8,7 +14,7 @@
 		</ul>
 	</div>
 	<div class="span6">
-		<h2 class="text-center text-big"><span class="big">¡Solicitalo!</span></h2>
+		<h2 class="text-center text-big"><span class="big">¡Solicítalo!</span></h2>
 		<?php
 			echo $this->Form->create('Appointment', array('class' => 'forma-cita'));
 			echo $this->Form->input(
@@ -40,6 +46,17 @@
 				)
 			);
 			echo $this->Form->input('comment', array('label' => false));
+			echo $this->Form->radio(
+				'type',
+				array(
+					0 => 'Compra',
+					1 => 'Demostración'
+				),
+				array(
+					'legend'  => false,
+					'default' => 0
+				)
+			);
 			echo $this->Form->end('Solicitar');
 		?>
 	</div>

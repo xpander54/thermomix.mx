@@ -35,6 +35,12 @@ class AppController extends Controller {
 
 	public $components = array(
 		'DebugKit.Toolbar',
-		'Session'
+		'Session',
+		'Auth' => array(
+		)
 	);
+
+	public function beforeFilter(){
+		$this->Auth->allow();
+	}
 }
