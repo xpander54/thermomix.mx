@@ -1,19 +1,9 @@
-<section class="video-container">
-<<<<<<< HEAD
-	<iframe id="ytplayer" type="text/html"
-src="https://www.youtube.com/embed/fDmvMPieJ14?controls=0&modestbranding=1&rel=0&showinfo=0&color=white&theme=light"
-frameborder="0" allowfullscreen>
-	</iframe>
-=======
-    
-    <iframe id="ytplayer" type="text/html"
-    src="https://www.youtube.com/embed/fDmvMPieJ14?controls=0&modestbranding=1&rel=0&showinfo=0&color=white&theme=light"
-    frameborder="0" allowfullscreen>
-    </iframe>
->>>>>>> dd6a80e06b65fc33f2650a67adbcf9f52d4f70a5
-</section>
+
 <section class="container first">
-	<div class="span6">
+
+
+
+	<div class="span6 black-box">
 		<h2 class="text-center"><span class="medium">Agenda</span> una demostración <span class="big">GRATUITA</span></h2>
 		<ul class="lista-demostracion">
 			<li>Conoce todas sus caracteristicas</li>
@@ -54,18 +44,35 @@ frameborder="0" allowfullscreen>
 				)
 			);
 			echo $this->Form->input('comment', array('label' => false));
-			echo $this->Form->radio(
-				'type',
-				array(
-					0 => 'Compra',
-					1 => 'Demostración'
-				),
-				array(
-					'legend'  => false,
-					'default' => 0
-				)
-			);
+			echo '<div class="radio-btns">';
+				echo $this->Form->radio(
+					'type',
+					array(
+						0 => 'Compra',
+						1 => 'Demostración'
+					),
+					array(
+						'legend'  => false,
+						'default' => 0,
+						'class' => 'radio-btn'
+					)
+				);
+			echo '</div>';
 			echo $this->Form->end('Solicitar');
 		?>
 	</div>
+</section>
+
+<section class="video-container">
+
+		
+
+	<iframe id="ytplayer" type="text/html" width="100%" height="800"
+src="https://www.youtube.com/embed/fDmvMPieJ14?controls=0&modestbranding=1&rel=0&showinfo=0&color=white&theme=light"
+frameborder="0" allowfullscreen>
+
+	</iframe>
+
+
+
 </section>
