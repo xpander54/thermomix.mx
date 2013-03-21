@@ -26,10 +26,17 @@
 			<h1><a href="/">Thermomix</a></h1>
 			<span class="telefono Three-Dee">5512·3645</span>
 		</header> <!-- Fin header.main -->
+
+			
+		<img src="img/thermomixBg.jpg" class="img-bg1" />
 		<section class="main content">
+			
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content') ?>
 		</section><!-- Fin sections.main.content -->
+
+		
+
 		<footer class="main">
 		</footer><!-- Fin footer.main -->
 	</div>
