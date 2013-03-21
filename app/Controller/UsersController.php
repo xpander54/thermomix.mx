@@ -6,6 +6,13 @@ class UsersController extends AppController{
 		parent::beforeFilter();
 	}
 
+	public function isAuthorized($user){
+		if(in_array($this->action, array('admin_logout'))){
+			return true;
+		}
+		return parent::isAuthorized($user);
+	}
+
 	public function admin_index(){
 
 		$this->paginate = array(
@@ -44,15 +51,40 @@ class UsersController extends AppController{
 
 	public function admin_edit_password($id = null){
 		$this->User->id = $id;
-		// Comprobar que el usuario existe.
+
 		if(!$this->User->exists()){
 			throw new NotFoundException('El usuario no existe.');
 		}
-		// Comprobar si el request es del tipo POST
 		if($this->request->is('post')){
-			$this->User->read(null, $id);
+			$this->User->read();
+			$this->User->set(
+				array(
+					'password'         => $this->request->data['User']['password'],
+					'confirm_password' => $this->request->data['User']['confirm_password'],
+					'last_password'    => $this->request->data['User']['last_password']
+				)
+			);
 
-			debug($this->User->password);
+			if($this->User->save()){
+				$this->Session->setFlash('Contraseña modificada');
+				$this->redirect(array('controller' => 'users', 'action' => 'index'));
+			} else{
+				$this->Session->setFlash('Ocurrio un error al intentar modificar la contraseña.');
+			}
 		}
+	}
+
+	public function admin_login(){
+		if($this->request->is('post')){
+			if($this->Auth->login()){
+				return $this->redirect($this->Auth->redirectUrl());
+			} else{
+				$this->Session->setFlash('Convinacion usuario contraseña incorrecta.');
+			}
+		}
+	}
+
+	public function admin_logout(){
+		$this->redirect($this->Auth->logout());
 	}
 }

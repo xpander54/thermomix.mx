@@ -12,11 +12,13 @@ class User extends AppModel{
 			),
 			'entre' => array(
 				'rule'     => array('between', 5, 12),
+				'required' => true,
 				'message'  => 'Este campo debe contener entre 5 y 12 caracteres.'
 			),
 			'alfanumerico' => array(
-				'rule'    => 'alphaNumeric',
-				'message' => 'Este campo solo acepta números y letras.'
+				'rule'     => 'alphaNumeric',
+				'required' => true,
+				'message'  => 'Este campo solo acepta números y letras.'
 			)
 		),
 		'password' => array(
@@ -26,7 +28,8 @@ class User extends AppModel{
 				'message'  => 'Este campo debe contener entre 6 y 18 caracteres.'
 			),
 			'matchpassword' => array(
-				'rule' => 'match_password',
+				'rule'    => 'match_password',
+				'required' => true,
 				'message' => 'Las contraseñas no coinciden.'
 			)
 		),
@@ -44,6 +47,13 @@ class User extends AppModel{
 			),
 			'required' => true,
 			'message'  => 'Debe seleccionar un role válido.'
+		),
+		'last_password' => array(
+			'checkpassword' => array(
+				'rule'     => 'check_password',
+				'required' => 'update',
+				'message'  => 'Contraseña incorrecta.'
+			)
 		)
 	);
 
@@ -62,5 +72,24 @@ class User extends AppModel{
 			$this->invalidate('confirm_password', 'Las contraseñas no coinciden.');
 			return false;
 		}
+	}
+
+	public function check_password($data){
+		$last_password = AuthComponent::password($data['last_password']);
+		$user = $this->find(
+			'first',
+			array(
+				'conditions' => array(
+					'User.id' => $this->data[$this->alias]['id']
+				)
+			)
+		);
+
+		if($last_password == $user[$this->alias]['password']){
+			return true;
+		} else{
+			return false;
+		}
+		// $this->invalidate('last_password', $user[$this->alias]['password']);
 	}
   }

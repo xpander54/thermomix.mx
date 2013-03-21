@@ -34,7 +34,8 @@
 					'pendiente' => 'Pendiente',
 					'agendada'  => 'Agendada',
 					'cancelada' => 'Cancelada'
-				)
+				),
+				'default' => $appointment['Appointment']['status']
 			)
 		);
 		echo $this->Form->end('Cambiar Status');

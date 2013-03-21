@@ -2,6 +2,24 @@
 
 class AppointmentsController extends AppController{
 
+	private $actions_mod = array(
+		'admin_index', 'admin_view', 'admin_change_status'
+	);
+
+	public function beforeFilter(){
+		parent::beforeFilter();
+		$this->Auth->allow('index');
+	}
+
+	public function isAuthorized($user){
+		if(isset($user['role']) && $user['role'] === 'mod'){
+			if(in_array($this->action, $this->actions_mod)){
+				return true;
+			}
+		}
+		return parent::isAuthorized($user);
+	}
+
 	public function index(){
 		$this->layout = 'public';
 
@@ -15,7 +33,42 @@ class AppointmentsController extends AppController{
 
 	public function admin_index(){
 
+		if(isset($this->request->params['named']['type'])){
+			switch($this->request->params['named']['type']) {
+				case 'agendada':
+					$conditions = array(
+						'Appointment.status' => 'agendada'
+					);
+
+					break;
+
+				case 'cancelada':
+					$conditions = array(
+						'Appointment.status' => 'cancelada'
+					);
+
+					break;
+
+				case 'pendiente':
+					$conditions = array(
+						'Appointment.status' => 'pendiente'
+					);
+
+					break;
+				
+				default:
+					throw new NotFoundException('No es posible calcula terminos.');
+
+					break;
+			}
+		} else{
+			$conditions = array(
+				'Appointment.status !=' => 'cancelada'
+			);
+		}
+
 		$this->paginate = array(
+			'conditions' => $conditions,
 			'limit' => 10
 		);
 
@@ -52,6 +105,7 @@ class AppointmentsController extends AppController{
 			$this->Appointment->read();
 			$this->Appointment->set('status', $this->request->data['Appointment']['status']);
 			if($this->Appointment->save()){
+				$this->Session->setFlash('Estatus modificado correctamente.');
 				$this->redirect(
 					array(
 						'controller' => 'appointments',
@@ -60,6 +114,30 @@ class AppointmentsController extends AppController{
 					)
 				);
 			}
+		}
+	}
+
+	public function admin_delete($id = null){
+		$this->Appointment->id = $id;
+
+		if(!$this->Appointment->exists()){
+			throw new NotFoundException('El usuario no existe.');
+		}
+
+		if(!$this->request->is('post')){
+			throw new MethodNotAllowedException('ERROR.');
+		} else{
+			if($this->Appointment->delete()){
+				$this->Session->setFlash('Cita eliminada correctamente.');
+			} else{
+				$this->Session->setFlash('Ocurrio un error al intentar eliminar la cita.');
+			}
+			$this->redirect(
+				array(
+					'controller' => 'appointments',
+					'action'     => 'index'
+				)
+			);
 		}
 	}
 

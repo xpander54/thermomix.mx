@@ -3,25 +3,41 @@
 	<?php
 		echo $this->Form->create('User');
 		echo $this->Form->input(
-			'password',
+			'last_password',
 			array(
-				'label' => 'Contraseña Anterior:'
-			)
-		);
-		echo $this->Form->input(
-			'n_password',
-			array(
-				'label' => 'Contraseña Nueva:',
+				'label' => 'Contraseña Actual:',
 				'type'  => 'password'
 			)
 		);
 		echo $this->Form->input(
-			'confirm_n_password',
+			'password',
 			array(
-				'label' => 'Confirmar Contraseña:',
+				'label' => 'Contraseña Nueva:'
+			)
+		);
+		echo $this->Form->input(
+			'confirm_password',
+			array(
+				'label' => 'Confirmar Contraseña Nueva:',
 				'type'  => 'password'
 			)
 		);
 		echo $this->Form->end('Editar Contraseña');
 	?>
+</div>
+<div class="actions">
+	<h3>Menú</h3>
+	<ul>
+		<li>
+			<?php
+				echo $this->Html->link(
+					'Cancelar',
+					array(
+						'controller' => 'users',
+						'action'     => 'index'
+					)
+				);
+			?>
+		</li>
+	</ul>
 </div>
