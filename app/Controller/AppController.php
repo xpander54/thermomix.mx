@@ -19,7 +19,8 @@ class AppController extends Controller {
 		'Auth' => array(
             'loginRedirect'  => array('controller' => 'appointments', 'action' => 'index'),
             'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
-            'authorize'      => array('Controller')
+            'authorize'      => array('Controller'),
+            'authError' => 'Su usuario no cuenta con los permisos necesarios.'
         )
 	);
 

@@ -3,7 +3,10 @@
 class AppointmentsController extends AppController{
 
 	private $actions_mod = array(
-		'admin_index', 'admin_view', 'admin_change_status'
+		'admin_index',
+		'admin_view',
+		'admin_change_status',
+		'admin_add_note'
 	);
 
 	public function beforeFilter(){
@@ -25,6 +28,7 @@ class AppointmentsController extends AppController{
 
 		if($this->request->is('post')){
 			if($this->Appointment->save($this->request->data)){
+				$this->Session->write('Forma.enviada', true);
 				$this->Session->setFlash('Solicitud añadida correctamente.');
 				$this->redirect('/');
 			}
@@ -75,6 +79,38 @@ class AppointmentsController extends AppController{
 		$appointments = $this->paginate();
 
 		$this->set('appointments', $appointments);
+	}
+
+	public function admin_add_note(){
+		if(!$this->request->is('post')){
+			throw new MethodNotAllowedException('Error');
+		} else{
+			$this->Appointment->id = $this->request->data['Appointment']['id'];
+
+			if($this->Appointment->exists()){
+
+				$this->Appointment->read();
+				$this->Appointment->set('notas', $this->request->data['Appointment']['notas']);
+
+				if($this->Appointment->save()){
+
+					$this->Session->setFlash('Nota guardada correctamente.');
+					$this->redirect(
+						array(
+							'controller' => 'appointments',
+							'action'     => 'view',
+							$this->request->data['Appointment']['id']
+						)
+					);
+				} else{
+					$this->Session->setFlash('Ocurrio un error al intentar guardar la nota');
+				}
+			} else{
+
+				throw new NotFoundException('La Cita no existe.');
+			}
+
+		}
 	}
 
 	public function admin_view($id = null){
