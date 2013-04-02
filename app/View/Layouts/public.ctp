@@ -43,6 +43,7 @@
 				</div>
 			</div>
 		</header> <!-- Fin header.main -->
+		<img src="img/thermomixBg3.jpg" class="img-bg1" />
 		<section class="main content">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content') ?>

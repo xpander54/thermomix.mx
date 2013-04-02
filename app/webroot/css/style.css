@@ -3,9 +3,94 @@ body{
 }
 
 .wrapper{
-	background: url(/img/thermomixBg.jpg);
-	background-size: cover;
+	/*background-size: cover;
+	*/
+
 }
+
+/*
+Imagen codigo rz
+*/
+.img-bg1
+{
+	width: 100%;
+	position: absolute;
+	opacity: 0.8;
+	margin: -35px 0;
+	padding: 0;
+	z-index:-20;	
+	max-width: 1024px;
+	/*min-width: 800px;
+	*/
+}
+
+input[type=radio] 
+{
+	display: none;	
+}
+
+input[type=radio] + label
+{
+	
+	margin: 10px;
+	display: inline-block;
+	margin-left: 70px;
+	padding-left: 20px;
+	width: 20px;
+	height: 20px;
+	background: url(/img/uncheck.png) 0px 0px no-repeat;
+}
+
+input[type=radio]:checked + label
+{
+	
+	background: url(/img/check.png) 0px 0px no-repeat;
+}
+
+
+.video-container {
+   /* 
+    padding-bottom: 37.63%;
+    height: 0; 
+    overflow: hidden;
+    */
+    position: relative;
+    min-height: 389px;
+    padding-top: 10px; 
+    margin: 30px 0;
+    
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+   position: absolute;
+    /*
+
+
+    */
+	left: 0;
+	top: 0;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.lista-demostracion li
+{
+
+	font-size: 1em;
+	color: #009F3B;
+	line-height: 1em;
+	padding:.5em 0  1em 0;
+	text-shadow: 2px 2px 1px #eeff00;
+	filter: dropshadow(color=#eeff00, offx=2, offy=2);
+
+
+}
+/*
+/Imagen codigo rz
+*/
 
 /* barra navegación */
 .nav.main{

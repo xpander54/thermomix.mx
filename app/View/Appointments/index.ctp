@@ -1,15 +1,21 @@
+<?php
+		$sesion = $this->Session->read()
+	?>
+
 <div class="container">
 	<section class="row-fluid">	
+		
 		<div class="span6">
 			<h2 class="text-center"><span class="medium">Agenda</span> una demostración <span class="big">GRATUITA</span></h2>
 			<ul class="lista-demostracion">
-				<li>Conoce todas sus caracteristicas</li>
-				<li>Recibe regalos Exclusivos</li>
-				<li>Cocina deliciosos platillos</li>
+				<h2><li>Conoce todas sus caracteristicas</li></h2>
+				<h2><li>Recibe regalos Exclusivos</li></h2>
+				<h2><li>Cocina deliciosos platillos</li></h2>
 			</ul>
 		</div>
+
 		<div class="span6 forma">
-			<?php if (isset($this->Session->read()['Forma']['enviada'])): ?>
+			<?php if (isset($sesion['Forma']['enviada'])): ?>
 				<h2>La solicitud ha sido enviada con ¡Exito!</h2>
 			<?php else: ?>
 				<h2 class="text-center text-big"><span class="big">¡Solicítalo!</span></h2>
@@ -71,3 +77,20 @@ src="https://www.youtube.com/embed/fDmvMPieJ14?controls=0&modestbranding=1&rel=0
 frameborder="0" allowfullscreen>
 	</iframe>
 </section> -->
+
+
+
+
+<section class="video-container">
+
+		
+
+	<iframe id="ytplayer" type="text/html" width="100%" height="800"
+src="https://www.youtube.com/embed/fDmvMPieJ14?controls=0&modestbranding=1&rel=0&showinfo=0&color=white&theme=light"
+frameborder="0" allowfullscreen>
+
+	</iframe>
+
+
+
+</section>

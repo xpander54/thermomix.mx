@@ -8,14 +8,19 @@
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 	?>
+
+	<?php
+		$sesion = $this->Session->read()
+	?>
+
 </head>
 <body>
 	<div id="wrapper">
 		<div id="header">
 			<h1>Sistema de Administracion | thermomix.mx</h1>
-			<?php if (isset($this->Session->read()['Auth']['User'])): ?>	
+			<?php if (isset($sesion['Auth']['User'])): ?>	
 			<ul class="menu-administracion">
-				<?php if ($this->Session->read()['Auth']['User']['role'] == 'admin'): ?>	
+				<?php if ($sesion['Auth']['User']['role'] == 'admin'): ?>	
 				<li>
 					<?php
 						echo $this->Html->link(
